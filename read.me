@@ -1,0 +1,20 @@
+At the core of this automated hydroponic system is the Raspberry Pi single board computer. This $35 computer is only the size of a deck of playing cards, but it has all the components you would find in a full computer, including CPU, RAM, video/audio output, USB, WiFi, Bluetooth, Ethernet, and micro SD slot. The most important feature of the Raspberry Pi for our application is its general purpose input-output (GPIO) pins, which will be used to connect inputs, such as switches and sensors to measure the environment, and outputs such as pumps and relays to move liquids and control electrical devices that will manipulate the environment.
+Until recently (this month, in fact), the major Achilles Heel of the Raspberry Pi has been an inability to boot from external storage devices, forcing the use of a micro SD card. Micro SD cards were designed for cameras where there are minimal read/write operations. Running a full Linux operating system along with a time-series database recording measurements severely reduces the life expectancy of the SD card and reduces the stability of the system due to file system corruption. In May 2020, firmware that allows the Raspberry Pi 4 to natively boot from an external storage device entered beta. This drastically improves its stability and suitability in critical automation applications.
+The software which will be installed on the Raspberry Pi to automate the hydroponic system is a free and open source software package I’ve developed, Mycodo, which is essentially a universal tool for environmental measuring, monitoring, and manipulation, and has been used for a number of interesting and diverse applications. Mycodo is a user-friendly yet powerful tool for building automation into almost any system. Below is a brief overview of the functionality that will be configured in Mycodo to operate as a hydroponic system controller:
+Hydroponic System Automation Features
+    • Measure water conditions: pH, electrical conductivity, temperature, level, and flow.
+    • Measure air conditions: temperature, humidity, vapor pressure deficit, and carbon dioxide (CO2).
+    • Control relays to modulate lights, air exhaust fan, and humidifier.
+    • Control four peristaltic pumps to dispense specific volumes of solutions: acid, base, nutrient A, and nutrient B.
+    • Automatically adjust water to target pH range by dispensing acid/base solutions.
+    • Automatically adjust water to target electrical conductivity range by dispensing nutrient solutions.
+    • Automatically adjust air to target humidity, temperature, and CO2 concentration ranges by modulating an exhaust fan and humidifier.
+    • Automatically regulate air vapor pressure deficit (VPD) with a humidifier and exhaust fan, using a PID controller.
+    • Use timers to schedule grow lights, air exhaust, and a DSLR camera shutter for high quality time-lapse photography.
+    • E-mail alert notifications if select measurements fall outside acceptable ranges (e.g. temperature too high, water level too low, water flow has stopped, etc.).
+    • Measure electrical energy usage with a transformer to automatically calculate operating costs.
+    • Use the Raspberry Pi Camera to monitor plants with a live video stream and conduct time-lapse photography of plant growth.
+    • Configure dashboards with gauges, graphs, camera feed, and other widgets to view all relevant data on a single page.
+    • Forward port 443 through your router to the Raspberry Pi to be able to access the Mycodo web interface from anywhere with internet access (using a user login system for security).
+
+
